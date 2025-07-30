@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Converter Decimal, Octal, Hexadecimal, Binary</title>
+    <style> * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Converter</h1>
+        <div class="form-group">
+            <label class="control-label">DEC</label>
+            <div class="control-input">
+               <input type="text" id="inp-dec" class="form-control" onkeyup="execDec()">
+            </div>
+        </div>
+       <div class="form-group"
+            <label class="control-label">OCT</label>
+            <div class="control-input">
+                <input type="text" id="inp-oct" class="form-control" onkeyup="execOct()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">HEX</label>
+            <div class="control-input">
+                <input type="text" id="inp-hex" class="form-control" onkeyup="execHex()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">BIN</label>
+            <div class="control-input">
+                <input type="text" id="inp-bin" class="form-control" onkeyup="execBin()">
+            </div>
+        </div>
+        <script>
+        inpDec = document.getElementById("inp-dec");
+        inpOct = document.getElementById("inp-oct");
+        inpHex = document.getElementById("inp-hex");
+        inpBin = document.getElementById("inp-bin");
+        function execDec() {
+            input = inpDec.value;
+            inpOct.value = converter(input, 10, 8);
+            inpHex.value = converter(input, 10, 16);
+            inpBin.value = converter(input, 10, 2);
+            
+        }
+        function execOct() {
+            input = inpOct.value;
+            inpDec.value = converter(input, 8, 10);
+            inpHex.value = converter(input, 8, 16);
+            inpBin.value = converter(input, 8, 2);
+        function execHex() {
+            input = inpHex.value;
+            inpDec.value = converter(input, 16, 10);
+            inpOct.value = converter(input, 16, 8);
+            inpBin.value = converter(input, 16, 2);
+        function execBin() {
+            input = inpBin.value;
+           inpDec.value = converter(input, 2, 10);
+            inpOct.value = converter(input, 2, 8);
+            inpHex.value = converter(input, 2, 16);
+        }
+        function Converter(input, from, to) {
+            convert = parseInt(input, from).toString(to);
+            
+            if (convert == "NaN") {
+                convert = "";
+            }
+            return convert;
+            
+        }
+        </script>
+          
